@@ -4,14 +4,15 @@ import os
 
 import uvicorn
 
-from syndio_backend_test import api
-
 
 def main():
     """Start web application."""
-    port = os.environ.get("PORT", "")
+    host = os.environ.get("HOST")
+    if not host:
+        host = "0.0.0.0" if os.getenv("DYNO") else "127.0.0.1"  # noqa: S104
+    port = os.getenv("PORT", "")
     port = int(port) if port.isdigit() else 5000
-    uvicorn.run(api.API, host="127.0.0.1", port=port, log_level="info")
+    uvicorn.run("syndio_backend_test.api:API", host=host, port=port, log_level="info")
 
 
 if __name__ == "__main__":
