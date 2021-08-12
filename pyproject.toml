@@ -63,6 +63,8 @@ disable = [
     'no-absolute-import',
     'suppressed-message',
     'too-many-instance-attributes',
+    'logging-fstring-interpolation',
+    'invalid-name',
 ]
 
 [tool.pytest.ini_options]

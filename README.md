@@ -2,6 +2,15 @@
 
 Demo an API with data read from a sqlite.
 
+## Usage
+
+```sh
+pip install git+https://github.com/xsc27/syndio_backend_test.git
+export PORT=8000  # Optional: defaults to 5000
+python3 -m syndio_backend_test  # Start web server
+curl http://127.0.0.1:${PORT}/employees/ | jq .
+```
+
 # License
 
 Copyright 2021 Carlos Meza
